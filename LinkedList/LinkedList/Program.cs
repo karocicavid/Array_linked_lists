@@ -98,6 +98,7 @@ namespace cavka
                 }
 
             } while (check == true);
+            Console.ResetColor();
             Console.Read();
 
         }
