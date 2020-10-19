@@ -84,32 +84,34 @@ namespace cavka
                             break;
                         }
                 }
-                foreach(Student st in studentlinked)
+                foreach (Student st in studentlinked)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("\nName of aspirant - " + st.name + ",surname - " + st.surname + ",course - " + st.course +
-                 ",codebook - " + st.name );
+                 ",codebook - " + st.name);
                 }
-                foreach(Aspirant asp in aspirantlinked)
+                foreach (Aspirant asp in aspirantlinked)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nName of aspirant - " + asp.name + ",surname - " + asp.surname + ",course - " + asp.course +
                     ",codebook - " + asp.name + ",disertation - " + asp.disertation);
                 }
 
             } while (check == true);
             Console.Read();
-          
+
         }
         public static int TryPress12()
         {
             int presskey = 0;
-            if (int.TryParse(Console.ReadLine(), out presskey)) { if (presskey == 1) { return presskey; } else if (presskey == 2) { return presskey; } else { Console.WriteLine("Wrong input try again!"); return TryPress12(); } }
-            else { Console.WriteLine("Wrong input try again!"); return TryPress12(); }
+            if (int.TryParse(Console.ReadLine(), out presskey)) { if (presskey == 1) { return presskey; } else if (presskey == 2) { return presskey; } else { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("Wrong input try again!"); Console.ResetColor(); return TryPress12(); } }
+            else { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("Wrong input try again!"); Console.ResetColor(); return TryPress12(); }
         }
         public static int TryPress()
         {
             int presskey = 0;
             if (int.TryParse(Console.ReadLine(), out presskey)) { return presskey; }
-            else { Console.WriteLine("Wrong input try again!"); return TryPress12(); }
+            else { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("Wrong input try again!"); Console.ResetColor(); return TryPress12(); }
         }
         public static string Alphabet()
         {
@@ -129,8 +131,8 @@ namespace cavka
                             else { check = false; }
                         }
                     }
-                    else { Console.WriteLine("Wrong name input again!"); check = false; break; }
-                    if (check == false) { Console.WriteLine("Wrong name input again!"); break; }
+                    else { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("Wrong name input again!"); check = false;Console.ResetColor(); break; }
+                    if (check == false) { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("Wrong name input again!"); Console.ResetColor(); break; }
                 }
             } while (check == false);
             return x;
